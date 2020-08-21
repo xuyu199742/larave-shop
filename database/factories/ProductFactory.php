@@ -29,5 +29,6 @@ $factory->define(Product::class, function (Faker $faker) {
         'review_count' => 0,
         'price'        => 0,
         'category_id'  => $category ? $category->id : null,
+        'long_title'   => $faker->sentence,
     ];
 });

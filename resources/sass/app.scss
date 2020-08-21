@@ -13,6 +13,79 @@ body {
     font-size: 14px;
 }
 
+@mixin product-list {
+    .products-list {
+        padding: 0 15px;
+
+        .product-item {
+            padding: 0 5px;
+            margin-bottom: 10px;
+
+            .product-content {
+                border: 1px solid #eee;
+
+                .top {
+                    padding: 5px;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    .price {
+                        margin-top: 5px;
+                        font-size: 20px;
+                        color: #ff0036;
+
+                        b {
+                            font-size: 14px;
+                        }
+                    }
+
+                    .title {
+                        margin-top: 10px;
+                        height: 32px;
+                        line-height: 12px;
+                        max-height: 32px;
+
+                        a {
+                            font-size: 12px;
+                            line-height: 14px;
+                            color: #333;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                .bottom {
+                    font-size: 12px;
+                    display: flex;
+
+                    .sold_count span {
+                        color: #b57c5b;
+                        font-weight: bold;
+                    }
+
+                    .review_count span {
+                        color: #38b;
+                        font-weight: bold;
+                    }
+
+                    & > div {
+                        &:first-child {
+                            border-right: 1px solid #eee;
+                        }
+
+                        padding: 10px 5px;
+                        line-height: 12px;
+                        flex-grow: 1;
+                        border-top: 1px solid #eee;
+                    }
+                }
+            }
+        }
+    }
+}
+
 /* header */
 
 .navbar-static-top {
@@ -92,76 +165,7 @@ body {
         margin-right: 5px;
     }
 
-    .products-list {
-        padding: 0 15px;
-
-        .product-item {
-            padding: 0 5px;
-            margin-bottom: 10px;
-
-            .product-content {
-                border: 1px solid #eee;
-
-                .top {
-                    padding: 5px;
-
-                    img {
-                        width: 100%;
-                    }
-
-                    .price {
-                        margin-top: 5px;
-                        font-size: 20px;
-                        color: #ff0036;
-
-                        b {
-                            font-size: 14px;
-                        }
-                    }
-
-                    .title {
-                        margin-top: 10px;
-                        height: 32px;
-                        line-height: 12px;
-                        max-height: 32px;
-
-                        a {
-                            font-size: 12px;
-                            line-height: 14px;
-                            color: #333;
-                            text-decoration: none;
-                        }
-                    }
-                }
-
-                .bottom {
-                    font-size: 12px;
-                    display: flex;
-
-                    .sold_count span {
-                        color: #b57c5b;
-                        font-weight: bold;
-                    }
-
-                    .review_count span {
-                        color: #38b;
-                        font-weight: bold;
-                    }
-
-                    & > div {
-                        &:first-child {
-                            border-right: 1px solid #eee;
-                        }
-
-                        padding: 10px 5px;
-                        line-height: 12px;
-                        flex-grow: 1;
-                        border-top: 1px solid #eee;
-                    }
-                }
-            }
-        }
-    }
+    @include product-list;
 
     .search-form {
         padding: 0 5px 10px;
@@ -186,6 +190,24 @@ body {
             a {
                 text-decoration: none;
                 color: #666;
+            }
+        }
+
+        .filter {
+            border: 1px red solid;
+            font-size: 12px;
+            padding: 2px 0 2px 2px;
+
+            .filter-value {
+                color: red;
+            }
+
+            .remove-filter {
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+                background: red;
+                padding: 2px;
             }
         }
     }
@@ -227,13 +249,53 @@ body {
         border: solid 1px #eee;
         padding: 30px 0;
     }
-    
+
+    .similar-products {
+        @include product-list;
+
+        .title {
+            font-weight: normal;
+        }
+
+        .price {
+            background-color: unset;
+        }
+    }
+
     .crowdfunding-info {
         margin-bottom: 20px;
         font-size: 14px;
 
         .have-text {
             font-size: 16px;
+        }
+
+        .properties-list {
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 20px;
+
+            .properties-list-title {
+                padding: 5px 0;
+                color: #999;
+                font-weight: 700;
+            }
+
+            .properties-list-body {
+                font-size: 12px;
+                padding: 5px 0;
+                list-style: none;
+                text-indent: 0;
+
+                li {
+                    display: inline-block;
+                    width: 30%;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .product-description img {
+            max-width: 100%;
         }
 
         .total-amount {
